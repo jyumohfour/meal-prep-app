@@ -1,10 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
 return (
-	<><div>
+	<div>
 		<h1>About Page</h1>
-	</div><h1 className="mt-5"> link</h1></>
+		<li>
+		<Link to="/SecondList">Link</Link>
+		</li>
+	</div>
+
+
+
+	
 	);
 };
 
