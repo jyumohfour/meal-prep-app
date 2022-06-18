@@ -9,12 +9,17 @@ Navigate,
 
 // import Home element
 import Home from "./elements/Home";
-// import About element
-import About from "./elements/About";
+// import About element/List2
+import About from "./elements/List2/About";
 // import ContactUs element
 import ContactUs from "./elements/ContactUs";
-
+// imports the secondlist from elements/List2
+import SecondList from './elements/List2/SecondList';
+// import List from element
 import List from "./elements/List";
+// imports SeconfLists from element/List2
+import SecondLists from "./elements/List2/SecondLists";
+
 
 function App() {
 return (
@@ -41,6 +46,8 @@ return (
       with exact path "/list", in
       element props we passes the imported element*/}
       <Route path="/list" element={<List />} />
+         <Route path="" element={<SecondLists />} /> 
+         <Route path=":postSlug" element={<SecondList />} />
         
       {/* If any route mismatches the upper
       route endpoints then, redirect triggers
