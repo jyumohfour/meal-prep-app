@@ -1,5 +1,5 @@
 import "./App.css";
-// importing elements from react-router-dom package
+
 import {
 BrowserRouter as Router,
 Routes,
@@ -21,6 +21,9 @@ import List from "./elements/List";
 // imports SeconfLists from element/List2
 import SecondLists from "./elements/List2/SecondLists";
 
+import { render } from "@testing-library/react";
+
+import Checkbox from "./elements/Checkbox";
 function App() {
 return (
 	<>
@@ -49,6 +52,8 @@ return (
          <Route path="" element={<SecondLists />} /> 
          <Route path=":postSlug" element={<SecondList />} />
         
+      <Route path="/checkbox" element={<Checkbox />} />
+
       {/* If any route mismatches the upper
       route endpoints then, redirect triggers
       and redirects app to home element with to="/" */}

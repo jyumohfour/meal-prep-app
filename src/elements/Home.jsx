@@ -1,8 +1,11 @@
 import React from "react";
+import {render} from 'react-dom';
 // importing Link from react-router-dom to navigate to
 // different end points.
 import { Link } from "react-router-dom";
 import "./styles.css";
+
+
 
 
 const Home = () => {
@@ -34,6 +37,9 @@ return (
           			Click Me!
      			</button>
  			</Link>
+			</li>
+			<li>
+				<Link to="/checkbox">checkbox</Link>
 			</li>
 		</ul>
 	</div>
