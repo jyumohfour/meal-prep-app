@@ -7,6 +7,7 @@ Route,
 Navigate,
 } from "react-router-dom";
 
+import React from 'react';
 // import Home element
 import Home from "./elements/Home";
 // import About element/List2
@@ -19,7 +20,6 @@ import SecondList from './elements/List2/SecondList';
 import List from "./elements/List";
 // imports SeconfLists from element/List2
 import SecondLists from "./elements/List2/SecondLists";
-
 
 function App() {
 return (
@@ -61,3 +61,4 @@ return (
 }
 
 export default App;
+
