@@ -3,9 +3,8 @@ import "./styles.css";
 // importing Link from react-router-dom to navigate to
 // different end points.
 import { Link } from "react-router-dom";
+import salad from "./images/salad.jpeg";
 //import "./styles.css";
-
-
 
 
 const Home = () => {
@@ -42,11 +41,16 @@ return (
 				<Link to="/checkbox">checkbox</Link>
 			</li>
 		</ul>
+		{/* salad image*/}
+		<div>
+			<img alt="salad" className="homeImg" src={salad} />
+		</div>
 		<Link to ="/about">
 		<div className="button-container">
           <input type="submit" />
         </div>
 		</Link>
+
 	</div>
 
 

@@ -30,6 +30,18 @@ input[type="submit"]:hover {
     background: #6cf0c2;
 }
 
+/* salad image */
+.homeImg {
+    position: absolute;
+    width: 1310px;
+    height: 655px;
+    left: 0px;
+    top: 100px;
+
+    background: url('./images/salad.jpeg');
+}
+
+/* Submit button */
 .button-container {
     display: flex;
     flex-direction: row;
@@ -40,8 +52,8 @@ input[type="submit"]:hover {
     position: absolute;
     width: 27px;
     height: 10px;
-    left: 24px;   
-    top: 87px;
+    left: 24px; /* affects x position*/
+    top: 200px; /* affects y position */
 }
 
 .login-form {
