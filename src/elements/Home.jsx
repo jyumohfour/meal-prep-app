@@ -1,9 +1,9 @@
 import React from "react";
-import {render} from 'react-dom';
+import "./styles.css";
 // importing Link from react-router-dom to navigate to
 // different end points.
 import { Link } from "react-router-dom";
-import "./styles.css";
+//import "./styles.css";
 
 
 
@@ -42,8 +42,16 @@ return (
 				<Link to="/checkbox">checkbox</Link>
 			</li>
 		</ul>
+		<Link to ="/about">
+		<div className="button-container">
+          <input type="submit" />
+        </div>
+		</Link>
 	</div>
+
+
 	);
+
 }
 
 export default Home;

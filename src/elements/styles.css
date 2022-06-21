@@ -32,7 +32,16 @@ input[type="submit"]:hover {
 
 .button-container {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 34px 24px;
+    gap: 10px;
     justify-content: center;
+    position: absolute;
+    width: 27px;
+    height: 10px;
+    left: 24px;   
+    top: 87px;
 }
 
 .login-form {
@@ -59,5 +68,5 @@ input[type="submit"]:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: 10px;
+    margin: 20px;
 }
