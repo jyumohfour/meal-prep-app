@@ -11,7 +11,7 @@ const Home = () => {
 return (
 	
 		<div img alt = "salad" className = "homeImg" src = {salad} >
-		<h1>Home Page</h1>
+		<h1>Meal Prep</h1>
 		{/* <img alt="salad" className="homeImg" src={salad} /> */}
 		<br />
 		<ul>
@@ -42,9 +42,15 @@ return (
 				<Link to="/checkbox">checkbox</Link>
 			</li>
 		</ul>
+		<div className="home-title">
+			Meal prep made easy
+		</div>
+		<div className="home-subtitle">
+			20 thousand recipes curated to your diet and budget
+		</div>
 		<Link to ="/about">
 		<div className="button-container">
-          <input type="submit" />
+          <input type="submit" value = "Start saving now"/>
         </div>
 		</Link>
 

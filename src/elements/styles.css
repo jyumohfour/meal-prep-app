@@ -19,9 +19,9 @@ input[type="password"] {
 input[type="submit"] {
     margin-top: 10px;
     cursor: pointer;
-    font-size: 15px;
-    background: #01d28e;
-    border: 1px solid #01d28e;
+    font-size: 20px;
+    background: #2DE360;;
+    border: 5px solid #2DE360;;
     color: #fff;
     padding: 10px 20px;
 }
@@ -37,7 +37,7 @@ input[type="submit"]:hover {
 
     background: url('./images/salad.jpeg');
     background-repeat: no-repeat;  /*prevents image repeat*/
-    background-size: 100%; /*clarifies size*/
+    background-size: 120%; /*clarifies size*/
     background-position: 0px 50px
 }
 
@@ -52,8 +52,8 @@ input[type="submit"]:hover {
     position: absolute;
     width: 27px;
     height: 10px;
-    left: 150px; /* affects x position*/
-    top: 400px; /* affects y position */
+    left: 225px; /* affects x position*/
+    top: 450px; /* affects y position */
 }
 
 .login-form {
@@ -81,4 +81,45 @@ input[type="submit"]:hover {
     flex-direction: column;
     gap: 8px;
     margin: 20px;
+}
+
+.home-title {
+    /* Meal prep made easy */
+    
+    position: absolute;
+    width: 1200px;
+    height: 180px;
+    left: 80px;
+    top: 250px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 133px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);    
+}
+
+.home-subtitle {
+    /* 20 thousand recipes curated to your diet and budget */
+    
+    
+    position: absolute;
+    width: 1287px;
+    height: 77px;
+    left: 80px;
+    top: 375px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 61px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.9);
 }
