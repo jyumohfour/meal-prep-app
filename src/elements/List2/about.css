@@ -1,0 +1,71 @@
+.first{
+    /* First, */
+
+
+position: absolute;
+width: 170px;
+height: 110px;
+left: 361px;
+top: 236px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 85px;
+
+color: #2DE360;
+}
+.head{
+    /* let’s see what you’re working with. */
+
+
+position: absolute;
+width: 1200px;
+height: 201px;
+left: 450px;
+top: 236px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 85px;
+
+color: #000000;
+}
+.body{
+    /* My budget is __________ for ______________. */
+
+
+position: absolute;
+left: 19.2%;
+right: 0%;
+top: 36%;
+bottom: 0%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 85px;
+
+color: #9D9D9D
+}
+input[type="text"] {
+    border: none;
+    border-bottom: 2px solid #9D9D9D;
+  }
+.background{
+    /* Rectangle 2 */
+
+
+    position: absolute;
+    background-size: 100%;
+    width: 2019px;
+    height: 1022px;
+    left: -31px;
+    top: -24px;
+
+    background: #F8F8F8;
+  }
