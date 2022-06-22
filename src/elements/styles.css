@@ -32,13 +32,13 @@ input[type="submit"]:hover {
 
 /* salad image */
 .homeImg {
-    position: absolute;
     width: 1310px;
     height: 655px;
-    left: 0px;
-    top: 100px;
 
     background: url('./images/salad.jpeg');
+    background-repeat: no-repeat;  /*prevents image repeat*/
+    background-size: 100%; /*clarifies size*/
+    background-position: 0px 50px
 }
 
 /* Submit button */
@@ -52,8 +52,8 @@ input[type="submit"]:hover {
     position: absolute;
     width: 27px;
     height: 10px;
-    left: 24px; /* affects x position*/
-    top: 200px; /* affects y position */
+    left: 150px; /* affects x position*/
+    top: 400px; /* affects y position */
 }
 
 .login-form {

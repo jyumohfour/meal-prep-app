@@ -10,8 +10,9 @@ import salad from "./images/salad.jpeg";
 const Home = () => {
 return (
 	
-		<div>
+		<div img alt = "salad" className = "homeImg" src = {salad} >
 		<h1>Home Page</h1>
+		{/* <img alt="salad" className="homeImg" src={salad} /> */}
 		<br />
 		<ul>
 			<li>
@@ -41,10 +42,6 @@ return (
 				<Link to="/checkbox">checkbox</Link>
 			</li>
 		</ul>
-		{/* salad image*/}
-		<div>
-			<img alt="salad" className="homeImg" src={salad} />
-		</div>
 		<Link to ="/about">
 		<div className="button-container">
           <input type="submit" />
