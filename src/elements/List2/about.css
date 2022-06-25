@@ -5,13 +5,13 @@
 position: absolute;
 width: 170px;
 height: 110px;
-left: 361px;
-top: 236px;
+left: 300px;
+top: 100px;
 
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
-font-size: 40px;
+font-size: 50px;
 line-height: 85px;
 
 color: #2DE360;
@@ -23,13 +23,13 @@ color: #2DE360;
 position: absolute;
 width: 1200px;
 height: 201px;
-left: 450px;
-top: 236px;
+left: 420px;
+top: 100px;
 
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
-font-size: 40px;
+font-size: 50px;
 line-height: 85px;
 
 color: #000000;
@@ -39,15 +39,16 @@ color: #000000;
 
 
 position: absolute;
-left: 19.2%;
-right: 0%;
-top: 36%;
+left: 30%;
+right: 25%;
+top: 40%;
 bottom: 0%;
+text-align: center;
 
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
-font-size: 40px;
+font-size: 50px;
 line-height: 85px;
 
 color: #9D9D9D
@@ -55,27 +56,35 @@ color: #9D9D9D
 input[type="text"] {
     border: none;
     border-bottom: 2px solid #9D9D9D;
-    background-color: #F8F8F8;
+    background: transparent;
     /* changes input color to transparent */
     outline:none;
-    padding: 2px 2px;
+    padding: 8px 2px;
+    width: 250px;
+    text-align: center;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     /* font size affects length of underscore ___*/
-    font-size: 40px;
+    font-size: 50px;
     line-height: 85px;
     color: #9D9D9D
   }
+
+  /* allows modification of placeholder */
+::placeholder {
+    color: #9D9D9D;
+    opacity: 1;
+}
 .background{
     /* Rectangle 2 */
 
 
-    position: absolute;
+    position: flex;
     background-size: 100%;
-    width: 2019px;
-    height: 1022px;
+    width: 100%;
+    height: 100%;
     left: -31px;
     top: -24px;
 

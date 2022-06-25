@@ -5,7 +5,8 @@
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: #f8f9fd;
 }
@@ -32,7 +33,7 @@ input[type="submit"]:hover {
 
 /* salad image */
 .homeImg {
-    width: 1310px;
+    width: 100%;
     height: 655px;
 
     background: url('./images/salad.jpeg');

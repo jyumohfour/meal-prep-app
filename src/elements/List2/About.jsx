@@ -9,10 +9,10 @@ return (
 			First,
         </div>
 		<div className="head">
-			let's see what you're working with
+			let's see what you're working with.
 		</div>
 		<div className="body">
-			My budget is <input type="text" /> for <input type="text" />.
+			My budget is <input type="text" placeHolder="(# of $$$)"/> for <input type="text" placeHolder="(# of weeks)"/>.
 		</div>
 		
 
