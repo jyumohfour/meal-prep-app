@@ -1,0 +1,111 @@
+.home{
+    /* Home */
+
+
+position: absolute;
+width: 177px;
+height: 53px;
+left: 366px;
+top: 59px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 41.9145px;
+line-height: 51px;
+
+color: #000000
+}
+.search{
+    /* Search */
+
+
+position: absolute;
+width: 208px;
+height: 53px;
+left: 605px;
+top: 59px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 41.9145px;
+line-height: 51px;
+
+color: #000000;
+}
+.about{
+    /* About */
+
+
+position: absolute;
+width: 176px;
+height: 53px;
+left: 876px;
+top: 59px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 41.9145px;
+line-height: 51px;
+
+color: #000000;
+}
+.contactUs{
+    /* Contact Us */
+
+
+position: absolute;
+width: 325px;
+height: 53px;
+left: 1091px;
+top: 59px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 41.9145px;
+line-height: 51px;
+
+color: #000000;
+
+
+}
+.login{
+    /* Login */
+
+
+position: absolute;
+width: 176px;
+height: 53px;
+left: 1718px;
+top: 59px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 41.9145px;
+line-height: 51px;
+
+color: #000000;
+}
+
+.mealPrep{
+    /* Meal Prep */
+
+
+position: absolute;
+width: 253px;
+height: 48px;
+left: 101px;
+top: 85px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 37.5978px;
+line-height: 46px;
+
+color: #4AC326;
+}

@@ -25,7 +25,19 @@
 }
 
 .App-link {
-  color: #61dafb;
+  position: absolute;
+width: 177px;
+height: 53px;
+left: 366px;
+top: 59px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 41.9145px;
+line-height: 51px;
+
+color: #000000;
 }
 
 @keyframes App-logo-spin {
