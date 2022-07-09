@@ -1,39 +1,40 @@
-.first{
-    /* First, */
-
-
-position: absolute;
-width: 170px;
-height: 110px;
-left: 300px;
-top: 100px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 50px;
-line-height: 85px;
-
-color: #2DE360;
+body {
+    font-family: 'Inter';
+    background-color: #f8f8f8;
 }
-.head{
+
+.phrase {
+    display: flex;
+    margin-top: 2.5%;
+    justify-content: center;
+}
+
+.first {
+    /* First, */
+    position: relative;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 85px;
+    color: #2DE360;
+    margin-right: 1%;
+
+}
+
+.endPhrase {
     /* let’s see what you’re working with. */
 
-
-position: absolute;
-width: 1200px;
-height: 201px;
-left: 420px;
-top: 100px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 50px;
-line-height: 85px;
-
-color: #000000;
+    position: relative;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 85px;
+    color: #000000;
 }
+
+
 .body{
     /* My budget is __________ for ______________. */
 
@@ -77,16 +78,40 @@ input[type="text"] {
     color: #9D9D9D;
     opacity: 1;
 }
-.background{
-    /* Rectangle 2 */
 
+#about
+input[type="submit"] {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background: #2DE360;
+    ;
+    border: 5px solid #2DE360;
+    ;
+    color: #fff;
+    padding: 10px 20px;
+}
 
-    position: flex;
-    background-size: 100%;
-    width: 100%;
-    height: 100%;
-    left: -31px;
-    top: -24px;
+#about
+input[type="submit"]:hover {
+    background: #6cf0c2;
+    border: 5px solid #6cf0c2;
+}
 
-    background: #F8F8F8;
-  }
+/* Submit button */
+#about
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 34px 24px;
+    gap: 10px;
+    justify-content: center;
+    position: absolute;
+    width: 1500px;
+    height: 10px;
+    left: 225px;
+    /* affects x position*/
+    top: 450px;
+    /* affects y position */
+}

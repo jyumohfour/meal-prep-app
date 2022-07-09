@@ -4,22 +4,21 @@ import "./about.css";
 
 const About = () => {
 return (
-	<div className = "background">
-		<div className="first">
-			First,
-        </div>
-		<div className="head">
-			let's see what you're working with.
-		</div>
-		<div className="body">
+	<div className = "phrase">
+		<text className="first"> First, </text>
+		<text className="endPhrase"> let's see what you're working with. </text>
+		<text className="body">
 			My budget is <input type="text" placeHolder="(# of $$$)"/> for <input type="text" placeHolder="(# of weeks)"/>.
-		</div>
-		
+		</text>
+		<body id = "about">
+			<Link to="/secondlist">
+				<div className="button-container">
+					<input type="submit" value="Continue" />
+				</div>
+			</Link>
+		</body>
 
-		
-		<li>
-		<Link to="/SecondList">Link</Link>
-		</li>
+
 	</div>
 	
 

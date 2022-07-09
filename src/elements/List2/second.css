@@ -1,0 +1,146 @@
+#second-page
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#second-page
+body {
+  font-family: 'Inter';
+  background-color: #f3f3f3;
+}
+
+#second-page
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#second-page
+section {
+  margin: 2rem 0 1rem 0;
+}
+
+#second-page
+.controls {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#second-page
+input {
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#second-page
+button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #2DE360;
+    border: 5px solid #2DE360;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+#second-page
+button:hover {
+  background-color: #6cf0c2;
+  cursor: pointer;
+  border: 5px solid #6cf0c2;
+}
+
+#second-page
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#second-page
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#second-page
+/* create class to reduce key sizes (i.e. ID, Price) */
+li {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Inter';
+}
+
+#second-page
+.nutrients ul {
+  display: flex;
+  width: 35rem;
+  justify-content: space-evenly;
+}
+
+#second-page
+.meals {
+  display: flex;
+}
+
+#second-page
+img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#second-page
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  margin: 0 1rem;
+  max-width: 300px;
+  box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+}
+
+#second-page
+ul {
+  list-style: none;
+}
+
+#second-page
+.instructions {
+  font-size: 10rem;
+  margin-bottom: 1rem;
+}
+
+#second-page
+a {
+  text-decoration: none;
+  position: relative;
+  left: 30%;
+  background-color:#2DE360;
+  color: #f3f3f3;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+#second-page
+a:hover {
+  background-color: #6cf0c2;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .meals {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nutrients ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}

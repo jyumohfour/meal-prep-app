@@ -29,6 +29,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background: #6cf0c2;
+    border: 5px solid #6cf0c2;
 }
 
 /* salad image */
