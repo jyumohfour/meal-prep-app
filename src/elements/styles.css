@@ -11,6 +11,50 @@
     background-color: #f8f9fd;
 }
 
+ul.navBar {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #2DE360;
+}
+
+.logoImg {
+    margin-left: 28%;
+    width: 30px;
+    height: 30px;
+}
+
+/* below are link details that remove underscore */
+a:link {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    text-decoration: none;
+    color: black;
+}
+
 input[type="text"],
 input[type="password"] {
     height: 25px;
