@@ -8,8 +8,14 @@ export default function Meal({ meal }) {
   const [likes, setLikes] = useState("");
 
   useEffect(() => {
+    // api key options:
+    // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
+    // josh's second one: 33830428e8b942879208b29576ba70f2
+    // random dude's: 9b6b788926b9411fa6efee53289091c0
+    // remember to update api key on "SecondList" and "Meal"
+
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=9b6b788926b9411fa6efee53289091c0&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=23139cc3494244e986af3e4ec60c0d9b&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
