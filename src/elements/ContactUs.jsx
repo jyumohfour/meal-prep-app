@@ -17,8 +17,7 @@ const produceList = [
 	{ value: "beets", label: "Beets" },
 	{ value: "apples", label: "Apples" },
 	{ value: "lemons", label: "Lemons" }
-];
-
+]
 const seafoodList = [
 	{ value: "lobster", label: "Lobster" },
 	{ value: "oyster", label: "Oyster" },
@@ -67,78 +66,24 @@ const grainsList = [
 
 function ContactUs() {
 
-	const [produce, setProduce] = useState([]);
-	const [seafood, setSeafood] = useState([]);
-	const [refrigerator, setRefrigerator] = useState([]);
-	const [meat, setMeat] = useState([]);
-	const [baking, setBaking] = useState([]);
-	const [grains, setGrains] = useState([]);
+	const [ingredients, setIngredients] = useState([]);
 
-	const handleProduce = e => {
+	const handleIngredients = e => {
 		const { value, checked } = e.target;
 		if (checked) {
 			// push selected value in list
-			setProduce(prev => [...prev, value]);
+			setIngredients(prev => [...prev, value]);
 		} else {
 			// remove unchecked value from the list
-			setProduce(prev => prev.filter(x => x !== value));
+			setIngredients(prev => prev.filter(x => x !== value));
 		}
 	}
 
-	const handleSeafood = e => {
-		const { value, checked } = e.target;
-		if (checked) {
-			// push selected value in list
-			setSeafood(prev => [...prev, value]);
-		} else {
-			// remove unchecked value from the list
-			setSeafood(prev => prev.filter(x => x !== value));
-		}
+	const handleSubmit = () => {
+		sessionStorage.setItem('usedIngredients', JSON.stringify(ingredients));
+		console.log(JSON.parse(sessionStorage.getItem('usedIngredients')));
 	}
 
-	const handleRefrigerator = e => {
-		const { value, checked } = e.target;
-		if (checked) {
-			// push selected value in list
-			setRefrigerator(prev => [...prev, value]);
-		} else {
-			// remove unchecked value from the list
-			setRefrigerator(prev => prev.filter(x => x !== value));
-		}
-	}
-
-	const handleMeat = e => {
-		const { value, checked } = e.target;
-		if (checked) {
-			// push selected value in list
-			setMeat(prev => [...prev, value]);
-		} else {
-			// remove unchecked value from the list
-			setMeat(prev => prev.filter(x => x !== value));
-		}
-	}
-
-	const handleBaking = e => {
-		const { value, checked } = e.target;
-		if (checked) {
-			// push selected value in list
-			setBaking(prev => [...prev, value]);
-		} else {
-			// remove unchecked value from the list
-			setBaking(prev => prev.filter(x => x !== value));
-		}
-	}
-
-	const handleGrains = e => {
-		const { value, checked } = e.target;
-		if (checked) {
-			// push selected value in list
-			setGrains(prev => [...prev, value]);
-		} else {
-			// remove unchecked value from the list
-			setGrains(prev => prev.filter(x => x !== value));
-		}
-	}
 
 	return (
 		<div className="page">
@@ -146,6 +91,16 @@ function ContactUs() {
 				<text className="third"> Fourth, </text>
 				<text className="endPhrase"> pick a few ingredients you like.</text>
 			</section>
+			
+			<body id="about">
+				<Link to="/secondlist">
+					<div className="button-container">
+						<input type="submit" value="Continue" onClick={handleSubmit} />
+					</div>
+				</Link>
+			</body>
+
+
 
 			{/* page split into three columns, each column in a row */}
 			<body id="smaller">
@@ -164,7 +119,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleProduce}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -178,7 +133,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleProduce}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -200,7 +155,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleMeat}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -214,7 +169,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleMeat}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -242,7 +197,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleSeafood}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -256,7 +211,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleSeafood}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -280,7 +235,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleBaking}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -294,7 +249,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleBaking}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -321,7 +276,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleRefrigerator}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -335,7 +290,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleRefrigerator}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -358,7 +313,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleGrains}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -372,7 +327,7 @@ function ContactUs() {
 													type="checkbox"
 													name="lang"
 													value={x.value}
-													onChange={handleGrains}
+													onChange={handleIngredients}
 												/> {x.label}
 												<span class="checkmark"></span>
 											</label>
@@ -386,17 +341,6 @@ function ContactUs() {
 					</section>
 				</section>
 			</body>
-			
-
-
-			<body id="about">
-				<Link to="/secondlist">
-					<div className="button-container">
-						<input type="submit" value="Continue" />
-					</div>
-				</Link>
-			</body>
-
 
 		</div>
 

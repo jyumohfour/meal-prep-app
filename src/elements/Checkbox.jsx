@@ -48,6 +48,12 @@ function Check() {
       setDiets(prev => prev.filter(x => x !== value));
     }
   }
+
+  const handleSubmit = () => {
+    sessionStorage.setItem('diets', JSON.stringify(diets));
+    sessionStorage.setItem('intolerances', JSON.stringify(allergies));
+  }
+
  
   return (
     <div className="page">
@@ -55,14 +61,6 @@ function Check() {
         <text className="third"> Third, </text>
         <text className="endPhrase"> specify your allergies and dietary restrictions.</text>
       </section>
-      
-		 <body id = "about">
-		 	<Link to="/contactus">
-		 		<div className="button-container">
-		 			<input type="submit" value="Continue" />
-		 		</div>
-		 	</Link>
-		 </body>
 
       <section className = "check">
         <section className="checkboxList">
@@ -97,6 +95,17 @@ function Check() {
           {/* <div>Selected allergies: {diets.length ? diets.join(', ') : null}</div> */}
         </section>
       </section>
+
+
+      <body id="about">
+        <Link to="/contactus">
+          <div className="button-container">
+            <input type="submit" value="Continue" onClick={handleSubmit}/>
+          </div>
+        </Link>
+      </body>
+
+
 
     </div>
       
