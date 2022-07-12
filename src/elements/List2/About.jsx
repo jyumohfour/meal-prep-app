@@ -11,7 +11,7 @@ return (
 			My budget is <input type="text" placeHolder="(# of $$$)"/> for <input type="text" placeHolder="(# of weeks)"/>.
 		</text>
 		<body id = "about">
-			<Link to="/secondlist">
+			<Link to="/Checkbox">
 				<div className="button-container">
 					<input type="submit" value="Continue" />
 				</div>

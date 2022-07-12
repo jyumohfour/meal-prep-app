@@ -40,11 +40,13 @@ body {
 }
 
 #about input[type="submit"] {
-    margin-top: 2.5%;
+    margin-top: 10px;
     cursor: pointer;
     font-size: 20px;
     background: #2DE360;
+    ;
     border: 5px solid #2DE360;
+    ;
     color: #fff;
     padding: 10px 20px;
 }
@@ -61,6 +63,12 @@ body {
     align-items: flex-start;
     padding: 34px 24px;
     gap: 10px;
+    justify-content: center;
+    position: absolute;
+    /* BELOW properties affect "submit" button position */
+    margin-top: 1%;
+    margin-left: 60%;
+
 }
 
 .row {

@@ -108,10 +108,8 @@ input[type="submit"]:hover {
     gap: 10px;
     justify-content: center;
     position: absolute;
-    width: 1500px;
-    height: 10px;
-    left: 225px;
-    /* affects x position*/
-    top: 450px;
-    /* affects y position */
+    /* BELOW properties affect "submit" button position */
+    margin-top: 10%;
+    margin-left: 60%;
+
 }
