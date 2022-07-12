@@ -78,7 +78,7 @@ function Check() {
               <span class="checkmark"></span>
             </label>
           </label>)}
-          <div>Selected allergies: {allergies.length ? allergies.join(', ') : null}</div>
+          {/* <div>Selected allergies: {allergies.length ? allergies.join(', ') : null}</div> */}
         </section>
 
         <section className="checkboxList">
