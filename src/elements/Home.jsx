@@ -9,6 +9,15 @@ import penguin from "./images/penguin.jpeg";
 
 
 const Home = () => {
+	
+	// resets values for queries in case traversing backward from next page
+	sessionStorage.removeItem('usedIngredients');
+	sessionStorage.removeItem('intolerances');
+	sessionStorage.removeItem('diet');
+	sessionStorage.setItem('usedIngredients', JSON.stringify([]));
+	sessionStorage.setItem('intolerances',JSON.stringify([]));
+	sessionStorage.setItem('diets', JSON.stringify([]));
+
 return (
 		<div img alt = "salad" className = "homeImg" src = {salad} >
 			<ul class="navBar">

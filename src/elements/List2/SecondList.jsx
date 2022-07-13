@@ -4,7 +4,7 @@ import "./second.css";
 
 function SecondList() {
   const [mealData, setMealData] = useState(null);
-  
+
   function getMealData() {
     // api key options:
     // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
@@ -14,8 +14,6 @@ function SecondList() {
     // remember to update api key on "SecondList" and "Meal"
     fetch(
       sessionStorage.getItem('bigLink')
-      // `https://api.spoonacular.com/recipes/complexSearch?apiKey=23139cc3494244e986af3e4ec60c0d9b&${ingred}&${diet}&${intol}`
-      // `https://api.spoonacular.com/recipes/complexSearch?apiKey=cb1c464d94f142c08b156c5beddade8b&number=3&includeIngredients=${ingredients}`
     )
       .then((response) => response.json())
       .then((data) => {

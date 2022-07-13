@@ -21,9 +21,16 @@ const dietList = [
   // { value: "fish", label: "Fish" },
   // { value: "shellfish", label: "Shellfish" }
 ];
- 
 function Check() {
- 
+
+  // resets values for queries in case traversing backward from next page
+  sessionStorage.removeItem('usedIngredients');
+  sessionStorage.removeItem('intolerances');
+  sessionStorage.removeItem('diet');
+  sessionStorage.setItem('usedIngredients', JSON.stringify([]));
+  sessionStorage.setItem('intolerances', JSON.stringify([]));
+  sessionStorage.setItem('diets', JSON.stringify([]));
+
   const [allergies, setAllergies] = useState([]);
   const [diets, setDiets] = useState([]);
  

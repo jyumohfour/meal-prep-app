@@ -66,6 +66,10 @@ const grainsList = [
 
 function ContactUs() {
 
+	// resets values for queries in case traversing backward from next page
+	sessionStorage.removeItem('usedIngredients');
+	sessionStorage.setItem('usedIngredients', JSON.stringify([]));
+
 	const [ingredients, setIngredients] = useState([]);
 
 	const handleIngredients = e => {
