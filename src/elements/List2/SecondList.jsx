@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import MealList from "./MealList";
 import "./second.css";
 
-// temporary bool variable:
-// basically, page will continue to render => keeps fetching
-// use this to stop it from fetching over and over again
-var pageLoaded = false;
 function SecondList() {
   const [mealData, setMealData] = useState(null);
 
-
-  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=9b6b788926b9411fa6efee53289091c0'
+  // api key options:
+  // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
+  // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
+  // josh's second one: 33830428e8b942879208b29576ba70f2
+  // random dude's: 9b6b788926b9411fa6efee53289091c0
+  // remember to update api key on "SecondList" and "Meal"
+  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8'
   const queryOne = JSON.parse(sessionStorage.getItem('usedIngredients'));
   console.log(queryOne);
   var stringOne = "includeIngredients=";
@@ -65,8 +66,10 @@ function SecondList() {
   sessionStorage.setItem('bigLink', finalLink);
   console.log(sessionStorage.getItem('bigLink'));
 
-  if(!pageLoaded) {
-    pageLoaded = true;
+  // fetches data based on changes to items in dependency
+  // here, item = finalLink, created then modified = two changes
+  // fetches data twice
+  useEffect(() => {
     fetch(
       sessionStorage.getItem('bigLink')
     )
@@ -75,42 +78,18 @@ function SecondList() {
         console.log(sessionStorage.getItem('bigLink'));
         console.log(data);
         setMealData(data);
-        console.log("YOO ONLY ONCE!")
+        console.log("ONLY ONCEEEEE PLEASEEE!");
       })
       .catch(() => {
         console.log("error");
       });
-  }
+  }, [finalLink])
 
-  
 
-  // function getMealData() {
-  //   // api key options:
-  //   // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
-  //   // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
-  //   // josh's second one: 33830428e8b942879208b29576ba70f2
-  //   // random dude's: 9b6b788926b9411fa6efee53289091c0
-  //   // remember to update api key on "SecondList" and "Meal"
-  //   fetch(
-  //     sessionStorage.getItem('bigLink')
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(sessionStorage.getItem('bigLink'));
-  //       console.log(data);
-  //       setMealData(data);
-  //     })
-  //     .catch(() => {
-  //       console.log("error");
-  //     });
-  // }
 
   return (
     <div className="App">
       <body id = "second-page">
-        {/* <section className="controls">
-          <button onClick={getMealData}>Get Daily Meal Plan</button>
-        </section> */}
         {mealData && <MealList mealData={mealData} />}
       </body>
     </div>
