@@ -39,27 +39,27 @@ const List = () => {
     stringThree += i < queryThree.length - 1 ? queryThree[i] + "," : queryThree[i]
   }
 
-  if(queryOne.length == 0) {
-    if(queryTwo.length == 0 && queryThree.length == 0) {
+  if(queryOne.length === 0) {
+    if(queryTwo.length === 0 && queryThree.length === 0) {
       finalLink = origLink;
     }
-    else if(queryTwo.length == 0) {
+    else if(queryTwo.length === 0) {
       finalLink = origLink + "&" + stringThree;
     }
-    else if(queryThree.length == 0) {
+    else if(queryThree.length === 0) {
       finalLink = origLink + "&" + stringTwo;
     }
     else {
       finalLink = origLink + "&" + stringTwo + "&" + stringThree;
     }
   }
-  else if(queryTwo.length == 0) {
+  else if(queryTwo.length === 0) {
     finalLink = origLink + "&" + stringOne;
-    if(queryThree.length != 0 ) {
+    if(queryThree.length !== 0 ) {
       finalLink += "&" + stringThree;
     }
   }
-  else if(queryThree.length == 0) {
+  else if(queryThree.length === 0) {
     finalLink = origLink + "&" + stringOne + "&" + stringTwo;
   }
   else {
