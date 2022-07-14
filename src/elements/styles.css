@@ -14,7 +14,43 @@
 html,
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
+}
+
+li.imageList {
+    list-style:none;
+    align-self: center;
+}
+
+.cropped {
+    width: 500px;
+    /* width of container */
+    height: 100px;
+    /* height of container */
+    overflow: hidden;
+    border: 5px solid black;
+}
+
+.cropped img {
+    margin-left: -10%;
+}
+
+
+.imageThing{
+    border: solid #2de360;
+    border-width: 10px 5px 15px 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction:row;
+}
+
+.column {
+    display: column;
+    flex-direction: column;
 }
 
 ul.navBar {
