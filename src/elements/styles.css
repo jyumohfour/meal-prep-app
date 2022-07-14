@@ -16,12 +16,13 @@ ul.navBar {
     flex-direction: row;
     list-style: none;
     justify-content: space-evenly;
+    border-bottom: 10px solid #2dE360;
 }
 
 .logo {
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     text-align: center;
     color: #2DE360;

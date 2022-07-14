@@ -8,7 +8,7 @@ return (
 		<text className="first"> First, </text>
 		<text className="endPhrase"> let's see what you're working with. </text>
 		<text className="body">
-			My budget is <input type="text" placeHolder="(# of $$$)"/> for <input type="text" placeHolder="(# of weeks)"/>.
+			My budget is $<input type="text" placeHolder="(# of $$$)"/>
 		</text>
 		<body id = "about">
 			<Link to="/Checkbox">
