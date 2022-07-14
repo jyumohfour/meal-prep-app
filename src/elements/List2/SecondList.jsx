@@ -83,7 +83,7 @@ function SecondList() {
       .catch(() => {
         console.log("error");
       });
-  }, [finalLink])
+  }, [])
 
 
 
