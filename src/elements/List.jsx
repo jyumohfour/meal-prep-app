@@ -4,23 +4,20 @@ import "./styles.css";
 import penguin from "./images/penguin.jpeg";
 
 const List = () => {
+  var cake = "https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-4.jpg";
 
-  var count = 0;
-  function modifyImageSize() {
-    var img = document.getElementById("balls");
+  function modifyImageSize(props) {
+    var img = document.getElementById(props);
     if(img !== null) {
       // initial click: makes image smaller
-      if(count === 0) {
-        img.style.height = "400px";
-        img.style.transition = "height 0.5s ease";
-        count = 1;
-      }
-      // next click: makes image larger
-      else {
-        img.style.width = "500px";
+      if(img.style.height === "400px") {
         img.style.height = "100px";
         img.style.transition = "height 0.5s ease";
-        count = 0;
+      }
+      // next click: makes image larger
+      else{
+        img.style.height = "400px";
+        img.style.transition = "height 0.5s ease";
       }
     }
   }
@@ -34,7 +31,10 @@ const List = () => {
       
       <li className="imageList">
         <ul className="cropped" id="balls" >
-          <img alt="penguin" onClick={() => modifyImageSize()} src={penguin}/>
+          <img alt="penguin" onClick={() => modifyImageSize("balls")} src={penguin}/>
+        </ul>
+        <ul className="cropped" id="mf" >
+          <img alt="new" onClick={() => modifyImageSize("mf")} src={cake} />
         </ul>
         <ul>balls</ul>
         <ul>balls</ul>
