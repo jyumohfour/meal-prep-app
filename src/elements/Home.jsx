@@ -31,7 +31,8 @@ return (
 				</li>
 				<li>
 					{/* Endpoint to route to About element */}
-					<Link to="/about">About</Link>
+					{/* NOW DOWNLOADS IMAGE OF PENGUIN */}
+					<Link to={penguin} target="_blank" download>About</Link>
 				</li>
 				<li>
 					{/* Endpoint to route to Contact Us element */}
