@@ -29,8 +29,27 @@ export default function Meal({ meal }) {
       });
   }, [meal.id]);
 
+  // collapsible function
+  function modifyImageSize(props) {
+    var mealBlock = document.getElementById(props);
+    if (mealBlock !== null) {
+      // initial click: makes image smaller
+      if (mealBlock.style.height === "600px") {
+        mealBlock.style.height = "100px";
+        mealBlock.style.transition = "height 0.5s ease";
+      }
+      // next click: makes image larger
+      else {
+        mealBlock.style.height = "600px";
+        mealBlock.style.transition = "height 0.5s ease";
+      }
+    }
+  }
+
   return (
-    <article>
+    // article = meal block
+    // article is now collapsible
+    <article id={meal.title} onClick={() => modifyImageSize(meal.title)}>
       <h1>{meal.title}</h1>
       <ul className="details">
         <img src={imageUrl} alt="recipe" />

@@ -85,6 +85,7 @@ li {
 #second-page
 .meals {
   display: flex;
+  flex-direction: column;
 }
 
 #second-page
@@ -94,13 +95,24 @@ img {
 }
 
 #second-page
+/* meal block */
 article {
   display: flex;
   flex-direction: column;
   padding: 2rem;
   margin: 0 1rem;
-  max-width: 300px;
+  width: 500px;
+    /* width of container */
+  height: 100px;
+  /* height of container */
+  overflow: hidden;
   box-shadow: 0 4px 8px 2px rgba(77, 77, 77, 0.15);
+  align-items: center;
+}
+
+article.img {
+  /* fills image inside collapsible */
+  height: fit-content;
 }
 
 #second-page
@@ -118,7 +130,6 @@ ul {
 a {
   text-decoration: none;
   position: relative;
-  left: 30%;
   background-color:#2DE360;
   color: #f3f3f3;
   width: fit-content;
