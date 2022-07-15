@@ -17,12 +17,16 @@ body {
     overflow-y: auto;
 }
 
+/* collapsible stuff */
+
 li.imageList {
     list-style:none;
     align-self: center;
 }
 
 .cropped {
+    display: flex;
+    flex-direction:column;
     width: 500px;
     /* width of container */
     height: 100px;
@@ -33,15 +37,16 @@ li.imageList {
 
 .cropped img {
     margin-left: -10%;
+    /* fills image inside collapsible */
+    height: fit-content;
 }
 
-
-.imageThing{
-    border: solid #2de360;
-    border-width: 10px 5px 15px 0px;
-    width: 100%;
-    height: 100%;
+.cropped text {
+    align-self: center;
 }
+
+/* end of collapsible stuff */
+
 
 .row {
     display: flex;
