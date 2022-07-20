@@ -9,10 +9,10 @@ function SecondList() {
   // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
   // josh's second one: 33830428e8b942879208b29576ba70f2
   // josh's third one: e71a6645ead9406db9c032e6c88d075f
+  // josh's fourth one: 47b6002fbdb348c8b25754ba38c9c154
   // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
-  // random dude's: 9b6b788926b9411fa6efee53289091c0
   // remember to update api key on "SecondList" and "Meal"
-  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=23139cc3494244e986af3e4ec60c0d9b'
+  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=47b6002fbdb348c8b25754ba38c9c154'
   const queryOne = JSON.parse(sessionStorage.getItem('usedIngredients'));
   console.log(queryOne);
   var stringOne = "includeIngredients=";
@@ -90,6 +90,11 @@ function SecondList() {
 
   return (
     <div className="App">
+      <button className="cuh">YOOO</button>
+      <section className="phrase">
+        <text className="first"> Finally, </text>
+        <text className="endPhrase"> pick a few recipes </text>
+      </section>
       <body id = "second-page">
         {mealData && <MealList mealData={mealData} />}
       </body>

@@ -37,13 +37,15 @@ input {
 
 #second-page
 button {
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    background: #2DE360;
-    border: 5px solid #2DE360;
-    color: #fff;
-    padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background: black;
+  height: 50px;
+  display: inline-block;
+  width: 150px;
+  color: #fff;
+  padding: 5px 10px;
 }
 
 #second-page
@@ -51,6 +53,13 @@ button:hover {
   background-color: #6cf0c2;
   cursor: pointer;
   border: 5px solid #6cf0c2;
+}
+
+#second-page
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40%;
 }
 
 #second-page
@@ -130,8 +139,10 @@ ul {
 a {
   text-decoration: none;
   position: relative;
+  margin-right: 25%;
   background-color:#2DE360;
   color: #f3f3f3;
+  height: fit-content;
   width: fit-content;
   padding: 0.5rem 1rem;
 }
@@ -141,6 +152,7 @@ a:hover {
   background-color: #6cf0c2;
   cursor: pointer;
 }
+
 
 @media only screen and (max-width: 1024px) {
   .meals {

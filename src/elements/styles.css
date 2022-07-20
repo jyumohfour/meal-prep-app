@@ -45,6 +45,34 @@ li.imageList {
     align-self: center;
 }
 
+.cropped button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background: #2DE360;
+    height: 50px;
+    display: inline-block;
+    width: 110px;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.cropped a {
+    text-decoration: none;
+    position: relative;
+    margin-left: 37%;
+    margin-right: 10%;
+    background-color: #2DE360;
+    color: #f3f3f3;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem 1rem;
+}
+
+.cropped a:hover {
+    background-color: #6cf0c2;
+    cursor: pointer;
+}
 /* end of collapsible stuff */
 
 
@@ -74,6 +102,21 @@ ul.navBar {
     text-align: center;
     color: #2DE360;
 }
+
+.cart {
+    background: white;
+    position: absolute;
+    top: 80px;
+    right: 200px;
+    height: 80px;
+    width: 75px;
+    border-radius: 10%;
+}
+
+.cart text{
+    font-size: 18px;
+}
+
 
 .logoImg {
     margin-left: 28%;
