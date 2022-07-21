@@ -1,9 +1,12 @@
 import React, { useState, useEffect} from "react";
 import MealList from "./MealList";
 import "./second.css";
+import cartImg from "../images/cart.png";
+// import {balls} from "./Meal"
 
 function SecondList() {
   const [mealData, setMealData] = useState(null);
+  const [cart, setCart] = useState([]);
 
   // api key options:
   // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
@@ -12,7 +15,7 @@ function SecondList() {
   // josh's fourth one: 47b6002fbdb348c8b25754ba38c9c154
   // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
   // remember to update api key on "SecondList" and "Meal"
-  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=47b6002fbdb348c8b25754ba38c9c154'
+  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2'
   const queryOne = JSON.parse(sessionStorage.getItem('usedIngredients'));
   console.log(queryOne);
   var stringOne = "includeIngredients=";
@@ -86,11 +89,21 @@ function SecondList() {
       });
   }, [])
 
+// // updates count for items in cart
+//   useEffect(() => {
+//     setCart(balls);
+//   }, [balls])
+
 
 
   return (
     <div className="App">
-      <button className="cuh">YOOO</button>
+      <button className="cart">
+        <section className="column">
+          <img src={cartImg} style={{ height: "45px", width: "55px" }} />
+          <text>{cart.length}</text>
+        </section>
+      </button>
       <section className="phrase">
         <text className="first"> Finally, </text>
         <text className="endPhrase"> pick a few recipes </text>

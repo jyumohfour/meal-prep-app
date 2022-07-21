@@ -6,7 +6,7 @@ export default function Meal({ meal }) {
   const [price, setPrice] = useState("");
   const [health, setHealth] = useState("");
   const [likes, setLikes] = useState("");
-  const [cartValue, setCartValue] = useState("Add");
+  const [words, setWords] = useState([]);
 
   useEffect(() => {
     // api key options:
@@ -17,7 +17,7 @@ export default function Meal({ meal }) {
     // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
     // remember to update api key on "SecondList" and "Meal"
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=47b6002fbdb348c8b25754ba38c9c154&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=33830428e8b942879208b29576ba70f2&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -48,16 +48,22 @@ export default function Meal({ meal }) {
     }
   }
 
-  function handleCartValue() {
-    var current = cartValue;
-    if(current === "Add") {
-      setCartValue("Remove");
-    }
-    else {
-      setCartValue("Add");
-    }
-  }
 
+  // below function causing rerendering problems
+  // function handleCart(props) {
+  //   var current = document.getElementById(props);
+  //   if (current !== null) {
+  //     if (current.innerText === "Add") {
+  //       current.innerText = "Remove";
+  //       setWords(myArray => [...myArray, current.value]);
+  //     }
+  //     else {
+  //       current.innerText = "Add";
+  //       setWords(myArray => myArray.filter(word => word !== current.value));
+  //     }
+  //   }
+  //   sessionStorage.setItem('words', JSON.stringify(words));
+  // }
   return (
     // article = meal block
     // article is now collapsible
@@ -75,8 +81,10 @@ export default function Meal({ meal }) {
 
       <section className="row">
         <a href={meal.sourceUrl}>Go to Recipe</a>
-        <button onClick={handleCartValue}> {cartValue}</button>
+        <button id = {meal.id} value = {meal.title} >Add</button>
       </section>
     </article>
   );
+
 }
+
