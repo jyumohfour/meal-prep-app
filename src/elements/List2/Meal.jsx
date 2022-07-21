@@ -17,7 +17,7 @@ export default function Meal({ meal }) {
     // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
     // remember to update api key on "SecondList" and "Meal"
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=33830428e8b942879208b29576ba70f2&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=e71a6645ead9406db9c032e6c88d075f&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -50,20 +50,25 @@ export default function Meal({ meal }) {
 
 
   // below function causing rerendering problems
-  // function handleCart(props) {
-  //   var current = document.getElementById(props);
-  //   if (current !== null) {
-  //     if (current.innerText === "Add") {
-  //       current.innerText = "Remove";
-  //       setWords(myArray => [...myArray, current.value]);
-  //     }
-  //     else {
-  //       current.innerText = "Add";
-  //       setWords(myArray => myArray.filter(word => word !== current.value));
-  //     }
-  //   }
-  //   sessionStorage.setItem('words', JSON.stringify(words));
-  // }
+  function handleCart(props) {
+    var current = document.getElementById(props);
+    if (current !== null) {
+      if (current.innerText === "Add") {
+        current.innerText = "Remove";
+        setWords(myArray => [...myArray, current.value]);
+      }
+      else {
+        current.innerText = "Add";
+        setWords(prev => prev.filter(x => x !== current.value));
+        // setWords(myArray => myArray.filter(word => word !== current.value));
+      }
+    }
+    sessionStorage.setItem('words', JSON.stringify(words));
+  }
+
+  useEffect(() => {
+    console.log(words);
+  }, [words])
   return (
     // article = meal block
     // article is now collapsible
@@ -81,7 +86,7 @@ export default function Meal({ meal }) {
 
       <section className="row">
         <a href={meal.sourceUrl}>Go to Recipe</a>
-        <button id = {meal.id} value = {meal.title} >Add</button>
+        <button id={meal.id} value={meal.title} onClick={() => handleCart(meal.id)}>Add</button>
       </section>
     </article>
   );

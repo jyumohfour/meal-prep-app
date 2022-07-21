@@ -15,7 +15,7 @@ function SecondList() {
   // josh's fourth one: 47b6002fbdb348c8b25754ba38c9c154
   // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
   // remember to update api key on "SecondList" and "Meal"
-  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2'
+  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=e71a6645ead9406db9c032e6c88d075f'
   const queryOne = JSON.parse(sessionStorage.getItem('usedIngredients'));
   console.log(queryOne);
   var stringOne = "includeIngredients=";
@@ -89,16 +89,32 @@ function SecondList() {
       });
   }, [])
 
-// // updates count for items in cart
-//   useEffect(() => {
-//     setCart(balls);
-//   }, [balls])
+  // useEffect(() => {
+  //   sessionStorage.setItem('words', JSON.stringify(words));
+  //   console.log("current array")
+  //   console.log(JSON.parse(sessionStorage.getItem('things')));
+  // }, [sessionStorage.getItem('words')])
+
+  function handleCart() {
+    const cartArray = JSON.parse(sessionStorage.getItem('words'));
+    console.log(cartArray);
+    if (cartArray.length === 0) {
+      console.log("cart is empty")
+      setCart([]);
+    }
+    else {
+      console.log("cart has values")
+      setCart(cartArray);
+    }
+    console.log("cart handled")
+    console.log(cart);
+  }
 
 
 
   return (
     <div className="App">
-      <button className="cart">
+      <button className="cart" onClick={handleCart}>
         <section className="column">
           <img src={cartImg} style={{ height: "45px", width: "55px" }} />
           <text>{cart.length}</text>

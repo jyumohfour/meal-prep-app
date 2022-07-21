@@ -8,10 +8,6 @@ const List = () => {
   var cake = "https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-4.jpg";
   const [words, setWords] = useState([]);
 
-  useEffect(() => {
-    console.log(words);
-  }, [words])
-
   // collapsible function
   function modifyImageSize(props) {
     var img = document.getElementById(props);
@@ -29,24 +25,50 @@ const List = () => {
     }
   }
 
-  function handleCart(props) {
+  function handleItem(props) {
     var current = document.getElementById(props);
     if(current !== null) {
       if(current.innerText === "Add") {
+        console.log("added")
         current.innerText = "Remove";
         setWords(myArray => [...myArray, current.value]);
       }
       else {
+        console.log("removed")
         current.innerText = "Add";
         setWords(myArray => myArray.filter(word => word !== current.value));
       }
     }
+        sessionStorage.setItem('things', JSON.stringify(words));
+  }
+
+  // ensures item is stored/set
+  useEffect(() => {
+    // need to set item value here otherwise cart is one step behind
     sessionStorage.setItem('things', JSON.stringify(words));
+    console.log("current array")
+    console.log(JSON.parse(sessionStorage.getItem('things')));
+  }, [sessionStorage.getItem('things')])
+ 
+  // sets cart value
+  function handleCart() {
+    const cartArray = JSON.parse(sessionStorage.getItem('things'));
+    console.log(cartArray);
+    if (cartArray.length === 0) {
+      console.log("cart is empty")
+      setWords([]);
+    }
+    else {
+      console.log("cart has values")
+      setWords(cartArray);
+    }
+    console.log("cart handled")
+    console.log(words);
   }
 
   return (
       <div className="column" id="list">
-        <button className="cart">
+        <button className="cart" onClick={handleCart}>
           <section className="column">
             <img src={cartImg} style={{height:"45px", width:"55px"}}/>
             <text>{words.length}</text>
@@ -65,12 +87,12 @@ const List = () => {
           <text>WE GOT DAWGS</text>
           <section className="row">
             <a href="google.com">Go to Recipe</a>
-            <button id = "balls1" value = "XD" onClick={() => handleCart("balls1")}>Add</button>
+            <button id = "balls1" value = "XD" onClick={() => handleItem("balls1")}>Add</button>
           </section>
         </ul>
         <ul className="cropped" id="mf" >
           <img alt="new" onClick={() => modifyImageSize("mf")} src={cake} />
-          <button id="mf1" value="lol this worked" onClick={() => handleCart("mf1")}>Add</button>
+          <button id="mf1" value="lol this worked" onClick={() => handleItem("mf1")}>Add</button>
         </ul>
         <ul>balls</ul>
         <ul>balls</ul>
