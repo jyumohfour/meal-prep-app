@@ -31,7 +31,8 @@ const List = () => {
       if(current.innerText === "Add") {
         console.log("added")
         current.innerText = "Remove";
-        setWords(myArray => [...myArray, current.value]);
+        setWords(words.concat(current.value))
+        // setWords(myArray => [...myArray, current.value]);
       }
       else {
         console.log("removed")
@@ -39,36 +40,25 @@ const List = () => {
         setWords(myArray => myArray.filter(word => word !== current.value));
       }
     }
-        sessionStorage.setItem('things', JSON.stringify(words));
+    sessionStorage.setItem('things', JSON.stringify(words));
   }
 
   // ensures item is stored/set
   useEffect(() => {
     // need to set item value here otherwise cart is one step behind
     sessionStorage.setItem('things', JSON.stringify(words));
-    console.log("current array")
+    console.log("current array");
     console.log(JSON.parse(sessionStorage.getItem('things')));
-  }, [sessionStorage.getItem('things')])
+  }, [{words}])
  
   // sets cart value
   function handleCart() {
-    const cartArray = JSON.parse(sessionStorage.getItem('things'));
-    console.log(cartArray);
-    if (cartArray.length === 0) {
-      console.log("cart is empty")
-      setWords([]);
-    }
-    else {
-      console.log("cart has values")
-      setWords(cartArray);
-    }
-    console.log("cart handled")
-    console.log(words);
+    console.log(JSON.parse(sessionStorage.getItem('things')).length);
   }
 
   return (
       <div className="column" id="list">
-        <button className="cart" onClick={handleCart}>
+      <button className="cart" onClick={() => handleCart()}>
           <section className="column">
             <img src={cartImg} style={{height:"45px", width:"55px"}}/>
             <text>{words.length}</text>
@@ -112,3 +102,6 @@ const List = () => {
   )
 }
  export default List
+
+ const wtv = JSON.parse(sessionStorage.getItem("things"))
+ export {wtv}

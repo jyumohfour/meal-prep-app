@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./second.css";
 
-export default function Meal({ meal }) {
+const Meal = ({ meal }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [price, setPrice] = useState("");
   const [health, setHealth] = useState("");
@@ -17,7 +17,7 @@ export default function Meal({ meal }) {
     // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
     // remember to update api key on "SecondList" and "Meal"
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=e71a6645ead9406db9c032e6c88d075f&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=33830428e8b942879208b29576ba70f2&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -49,26 +49,39 @@ export default function Meal({ meal }) {
   }
 
 
-  // below function causing rerendering problems
   function handleCart(props) {
+    console.log("HANDLE CART:")
     var current = document.getElementById(props);
+    // each meal has a 'words' state, so the item 'words' was getting
+    // reset everytime since const 'words' was empty everytime
+    // need to assign the const 'words' to item 'words' before
+    // adding or removing
+    var mainArray = JSON.parse(sessionStorage.getItem('words'));
+    setWords(mainArray);
     if (current !== null) {
       if (current.innerText === "Add") {
+        console.log("added")
         current.innerText = "Remove";
         setWords(myArray => [...myArray, current.value]);
       }
       else {
+        console.log("removed")
         current.innerText = "Add";
-        setWords(prev => prev.filter(x => x !== current.value));
-        // setWords(myArray => myArray.filter(word => word !== current.value));
+        setWords(myArray => myArray.filter(word => word !== current.value));
       }
     }
     sessionStorage.setItem('words', JSON.stringify(words));
   }
 
+  // ensures item is stored/set
   useEffect(() => {
-    console.log(words);
-  }, [words])
+    // need to set item value here otherwise cart is one step behind
+    sessionStorage.setItem('words', JSON.stringify(words));
+    console.log("IN MEAL EFFECT");
+    console.log("current array");
+    console.log(JSON.parse(sessionStorage.getItem('words')));
+  }, [{words}])
+
   return (
     // article = meal block
     // article is now collapsible
@@ -92,4 +105,6 @@ export default function Meal({ meal }) {
   );
 
 }
-
+export default Meal;
+const wtv = JSON.parse(sessionStorage.getItem('words'));
+export {wtv}

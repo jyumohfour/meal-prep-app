@@ -1,12 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./styles.css";
 // importing Link from react-router-dom to navigate to
 // different end points.
 import { Link } from "react-router-dom";
 import salad from "./images/salad.jpeg";
 import penguin from "./images/penguin.jpeg";
+import {wtv} from "./List"
 //import "./styles.css";
-
 
 const Home = () => {
 	
@@ -17,6 +17,13 @@ const Home = () => {
 	sessionStorage.setItem('usedIngredients', JSON.stringify([]));
 	sessionStorage.setItem('intolerances',JSON.stringify([]));
 	sessionStorage.setItem('diets', JSON.stringify([]));
+
+	useEffect(() => {
+		// need to set item value here otherwise cart is one step behind
+		sessionStorage.setItem('things', JSON.stringify(JSON.parse(sessionStorage.getItem('things'))));
+		console.log("current array")
+		console.log(JSON.parse(sessionStorage.getItem('things')));
+	}, [sessionStorage.getItem('things')])
 
 return (
 		<div img alt = "salad" className = "homeImg" src = {salad} >
