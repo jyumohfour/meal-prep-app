@@ -5,8 +5,6 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import salad from "./images/salad.jpeg";
 import penguin from "./images/penguin.jpeg";
-import {wtv} from "./List"
-//import "./styles.css";
 
 const Home = () => {
 	

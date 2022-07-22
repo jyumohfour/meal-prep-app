@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react";
 import MealList from "./MealList";
 import "./second.css";
 import cartImg from "../images/cart.png";
+import {wtv} from "./Meal";
 
 function SecondList() {
   const [mealData, setMealData] = useState(null);
@@ -89,15 +90,9 @@ function SecondList() {
       });
   }, [isLoaded])
 
-    // useEffect(() => {
-    //   console.log("MY BALLS");
-    //   const updatedArray = JSON.parse(sessionStorage.getItem('words'));
-    //   console.log(updatedArray);
-    // }, [sessionStorage.getItem('words')])
 
     function handleCart() {
       console.log("THE SECOND CART!!!!");
-      console.log(JSON.parse(sessionStorage.getItem('words')));
       setCart(JSON.parse(sessionStorage.getItem('words')))
     }
 

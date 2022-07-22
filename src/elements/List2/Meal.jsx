@@ -62,6 +62,7 @@ const Meal = ({ meal }) => {
       if (current.innerText === "Add") {
         console.log("added")
         current.innerText = "Remove";
+        sessionStorage.setItem("cuh", "10");
         setWords(myArray => [...myArray, current.value]);
       }
       else {
@@ -77,6 +78,9 @@ const Meal = ({ meal }) => {
   useEffect(() => {
     // need to set item value here otherwise cart is one step behind
     sessionStorage.setItem('words', JSON.stringify(words));
+    sessionStorage.setItem('count', words.length);
+    console.log("count");
+    console.log(sessionStorage.getItem('count'));
     console.log("IN MEAL EFFECT");
     console.log("current array");
     console.log(JSON.parse(sessionStorage.getItem('words')));
@@ -106,5 +110,3 @@ const Meal = ({ meal }) => {
 
 }
 export default Meal;
-const wtv = JSON.parse(sessionStorage.getItem('words'));
-export {wtv}

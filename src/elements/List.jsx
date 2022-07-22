@@ -4,9 +4,13 @@ import "./styles.css";
 import penguin from "./images/penguin.jpeg";
 import cartImg from "./images/cart.png";
 
+console.log(JSON.parse(sessionStorage.getItem('crack')));
+
+
 const List = () => {
   var cake = "https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-4.jpg";
   const [words, setWords] = useState([]);
+
 
   // collapsible function
   function modifyImageSize(props) {
@@ -49,13 +53,15 @@ const List = () => {
     sessionStorage.setItem('things', JSON.stringify(words));
     console.log("current array");
     console.log(JSON.parse(sessionStorage.getItem('things')));
+    // dependency array must have constant
+    // using storage item (i.e. getItem()) only calls it once
+
   }, [{words}])
  
   // sets cart value
   function handleCart() {
     console.log(JSON.parse(sessionStorage.getItem('things')).length);
   }
-
   return (
       <div className="column" id="list">
       <button className="cart" onClick={() => handleCart()}>
