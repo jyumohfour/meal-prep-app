@@ -103,20 +103,6 @@ ul.navBar {
     color: #2DE360;
 }
 
-.cart {
-    background: white;
-    position: absolute;
-    top: 80px;
-    right: 200px;
-    height: 80px;
-    width: 75px;
-    border-radius: 10%;
-}
-
-.cart text{
-    font-size: 18px;
-}
-
 
 .logoImg {
     margin-left: 28%;

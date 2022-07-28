@@ -4,9 +4,6 @@ import "./styles.css";
 import penguin from "./images/penguin.jpeg";
 import cartImg from "./images/cart.png";
 
-console.log(JSON.parse(sessionStorage.getItem('crack')));
-
-
 const List = () => {
   var cake = "https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-4.jpg";
   const [words, setWords] = useState([]);

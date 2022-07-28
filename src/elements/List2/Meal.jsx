@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./second.css";
+import {CartContext} from './SecondList'
 
 const Meal = ({ meal }) => {
   const [imageUrl, setImageUrl] = useState("");
@@ -7,6 +8,7 @@ const Meal = ({ meal }) => {
   const [health, setHealth] = useState("");
   const [likes, setLikes] = useState("");
   const [words, setWords] = useState([]);
+  const [label, setLabel] = useState("Add");
 
   useEffect(() => {
     // api key options:
@@ -17,7 +19,7 @@ const Meal = ({ meal }) => {
     // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
     // remember to update api key on "SecondList" and "Meal"
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=33830428e8b942879208b29576ba70f2&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=23139cc3494244e986af3e4ec60c0d9b&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -49,27 +51,20 @@ const Meal = ({ meal }) => {
   }
 
 
-  function handleCart(props) {
+  function handleCart() {
     console.log("HANDLE CART:")
-    var current = document.getElementById(props);
-    // each meal has a 'words' state, so the item 'words' was getting
-    // reset everytime since const 'words' was empty everytime
-    // need to assign the const 'words' to item 'words' before
-    // adding or removing
     var mainArray = JSON.parse(sessionStorage.getItem('words'));
     setWords(mainArray);
-    if (current !== null) {
-      if (current.innerText === "Add") {
-        console.log("added")
-        current.innerText = "Remove";
-        sessionStorage.setItem("cuh", "10");
-        setWords(myArray => [...myArray, current.value]);
-      }
-      else {
-        console.log("removed")
-        current.innerText = "Add";
-        setWords(myArray => myArray.filter(word => word !== current.value));
-      }
+    if (label === 'Add') {
+      console.log("added");
+      setLabel('Remove');
+      sessionStorage.setItem("cuh", "10");
+      setWords(myArray => [...myArray, meal.title]);
+    }
+    else {
+      console.log("removed");
+      setLabel('Add');
+      setWords(myArray => myArray.filter(word => word !== meal.title));
     }
     sessionStorage.setItem('words', JSON.stringify(words));
   }
@@ -78,9 +73,6 @@ const Meal = ({ meal }) => {
   useEffect(() => {
     // need to set item value here otherwise cart is one step behind
     sessionStorage.setItem('words', JSON.stringify(words));
-    sessionStorage.setItem('count', words.length);
-    console.log("count");
-    console.log(sessionStorage.getItem('count'));
     console.log("IN MEAL EFFECT");
     console.log("current array");
     console.log(JSON.parse(sessionStorage.getItem('words')));
@@ -103,7 +95,11 @@ const Meal = ({ meal }) => {
 
       <section className="row">
         <a href={meal.sourceUrl}>Go to Recipe</a>
-        <button id={meal.id} value={meal.title} onClick={() => handleCart(meal.id)}>Add</button>
+        <CartContext.Consumer>
+          {(props) => (
+            <button onClick={() => {props.toggleLocal(label); handleCart()}}>{label}</button>
+          )}
+        </CartContext.Consumer>
       </section>
     </article>
   );

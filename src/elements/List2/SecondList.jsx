@@ -1,13 +1,25 @@
 import React, { useState, useEffect} from "react";
 import MealList from "./MealList";
 import "./second.css";
-import cartImg from "../images/cart.png";
-import {wtv} from "./Meal";
+
+export const CartContext = React.createContext();
 
 function SecondList() {
   const [mealData, setMealData] = useState(null);
   const [cart, setCart] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [local, setLocal] = useState(0);
+
+  function funkyThing(props) {
+    setLocal(props === 'Add' ? local + 1 : local - 1);
+  }
+
+  // acts as replacement for class state
+  let props = {
+    local: local,
+    toggleLocal: funkyThing
+  }
+
 
   // api key options:
   // josh's main one: 23139cc3494244e986af3e4ec60c0d9b
@@ -76,8 +88,7 @@ function SecondList() {
   // fetches data twice
   useEffect(() => {
     fetch(
-      'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2&number=2'
-      // sessionStorage.getItem('bigLink')
+      sessionStorage.getItem('bigLink')
     )
       .then((response) => response.json())
       .then((data) => {
@@ -98,18 +109,14 @@ function SecondList() {
 
   return (
     <div className="App">
-      <button className="cart" onClick={() => handleCart()} >
-        <section className="column">
-          <img src={cartImg} style={{ height: "45px", width: "55px" }} />
-          <text>{cart.length}</text>
-        </section>
-      </button>
       <section className="phrase">
         <text className="first"> Finally, </text>
         <text className="endPhrase"> pick a few recipes </text>
       </section>
       <body id = "second-page">
-        {mealData && <MealList mealData={mealData} />}
+        {mealData && <CartContext.Provider value = {props}>
+            <MealList mealData={mealData}/>
+          </CartContext.Provider>}
       </body>
     </div>
   );
