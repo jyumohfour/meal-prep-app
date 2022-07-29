@@ -5,11 +5,10 @@ import "./second.css";
 export const CartContext = React.createContext();
 
 function SecondList() {
-  const oldBudget = parseFloat(sessionStorage.getItem('budget'));
   const [mealData, setMealData] = useState(null);
   const [cart, setCart] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
-  const [budget, setBudget] = useState(oldBudget);
+  const [budget, setBudget] = useState(sessionStorage.getItem('budget'));
 
 
   function funkyThing(props) {
@@ -102,7 +101,7 @@ function SecondList() {
   // fetches data twice
   useEffect(() => {
     fetch(
-      'https://api.spoonacular.com/recipes/complexSearch?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8&number=2'
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8&number=1'
       // sessionStorage.getItem('bigLink')
     )
       .then((response) => response.json())

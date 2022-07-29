@@ -20,7 +20,7 @@ export default function MealList({ mealData }) {
           })}
         </section>
         <section className="sideStuff">
-          <h2>Remaining:</h2>
+          <h3>Remaining:</h3>
           <CartContext.Consumer>
             {({budget}) => <text>${budget}</text>}
           </CartContext.Consumer>
