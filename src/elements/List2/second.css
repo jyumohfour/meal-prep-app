@@ -36,23 +36,39 @@ input {
 }
 
 #second-page
-button {
+.addButton {
   margin-top: 10px;
+  border: none;
   cursor: pointer;
   font-size: 20px;
-  background: black;
+  background: #2DE360;
   height: 50px;
-  display: inline-block;
   width: 160px;
-  color: #fff;
+  color: #F3F3F3;
   padding: 5px 10px;
 }
 
 #second-page
-button:hover {
+.addButton:hover {
   background-color: #6cf0c2;
   cursor: pointer;
-  border: 5px solid #6cf0c2;
+}
+
+.mealList {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10%;
+  height: 60px;
+  width: 250px;
+  font-size: 17px;
+  background: #F3F3F3;
+  justify-content: space-evenly;
 }
 
 #second-page
@@ -93,6 +109,8 @@ li {
 
 #second-page
 .meals {
+  margin-left: 18%;
+  margin-right: 5%;
   display: flex;
   flex-direction: column;
 }

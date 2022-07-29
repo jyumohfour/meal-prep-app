@@ -88,7 +88,8 @@ function SecondList() {
   // fetches data twice
   useEffect(() => {
     fetch(
-      sessionStorage.getItem('bigLink')
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2&number=1'
+      // sessionStorage.getItem('bigLink')
     )
       .then((response) => response.json())
       .then((data) => {

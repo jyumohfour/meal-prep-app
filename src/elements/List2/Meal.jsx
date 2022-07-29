@@ -97,7 +97,7 @@ const Meal = ({ meal }) => {
         <a href={meal.sourceUrl}>Go to Recipe</a>
         <CartContext.Consumer>
           {(props) => (
-            <button onClick={() => {props.toggleLocal(label); handleCart()}}>{label}</button>
+            <button className ="addButton" onClick={() => {props.toggleLocal(label); handleCart()}}>{label}</button>
           )}
         </CartContext.Consumer>
       </section>
