@@ -3,12 +3,17 @@ import "./second.css";
 import {CartContext} from './SecondList'
 
 const Meal = ({ meal }) => {
+  const [loaded, isLoaded] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [price, setPrice] = useState("");
   const [health, setHealth] = useState("");
   const [likes, setLikes] = useState("");
-  const [words, setWords] = useState([]);
   const [label, setLabel] = useState("Add");
+
+  let mealDetails = {
+    label: label,
+    title: meal.title
+  }
 
   useEffect(() => {
     // api key options:
@@ -31,7 +36,7 @@ const Meal = ({ meal }) => {
       .catch(() => {
         console.log("error");
       });
-  }, []);
+  }, [loaded]);
 
   // collapsible function
   function modifyImageSize(props) {
@@ -53,30 +58,15 @@ const Meal = ({ meal }) => {
 
   function handleCart() {
     console.log("HANDLE CART:")
-    var mainArray = JSON.parse(sessionStorage.getItem('words'));
-    setWords(mainArray);
     if (label === 'Add') {
       console.log("added");
       setLabel('Remove');
-      sessionStorage.setItem("cuh", "10");
-      setWords(myArray => [...myArray, meal.title]);
     }
     else {
       console.log("removed");
       setLabel('Add');
-      setWords(myArray => myArray.filter(word => word !== meal.title));
     }
-    sessionStorage.setItem('words', JSON.stringify(words));
   }
-
-  // ensures item is stored/set
-  useEffect(() => {
-    // need to set item value here otherwise cart is one step behind
-    sessionStorage.setItem('words', JSON.stringify(words));
-    console.log("IN MEAL EFFECT");
-    console.log("current array");
-    console.log(JSON.parse(sessionStorage.getItem('words')));
-  }, [{words}])
 
   return (
     // article = meal block
@@ -97,7 +87,7 @@ const Meal = ({ meal }) => {
         <a href={meal.sourceUrl}>Go to Recipe</a>
         <CartContext.Consumer>
           {(props) => (
-            <button className ="addButton" onClick={() => {props.toggleLocal(label); handleCart()}}>{label}</button>
+            <button className ="addButton" onClick={() => {props.toggleLocal(mealDetails); handleCart()}}>{label}</button>
           )}
         </CartContext.Consumer>
       </section>

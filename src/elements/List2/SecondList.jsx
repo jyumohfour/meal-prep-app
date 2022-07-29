@@ -8,17 +8,20 @@ function SecondList() {
   const [mealData, setMealData] = useState(null);
   const [cart, setCart] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
-  const [local, setLocal] = useState(0);
 
   function funkyThing(props) {
-    setLocal(props === 'Add' ? local + 1 : local - 1);
+    setCart(props.label === 'Add' ? prev => [...prev, props.title] : prev => prev.filter(x => x !== props.title));
   }
 
   // acts as replacement for class state
   let props = {
-    local: local,
+    cart: cart,
     toggleLocal: funkyThing
   }
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart])
 
 
   // api key options:
@@ -88,7 +91,7 @@ function SecondList() {
   // fetches data twice
   useEffect(() => {
     fetch(
-      'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2&number=1'
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2&number=10'
       // sessionStorage.getItem('bigLink')
     )
       .then((response) => response.json())
@@ -102,11 +105,6 @@ function SecondList() {
       });
   }, [isLoaded])
 
-
-    function handleCart() {
-      console.log("THE SECOND CART!!!!");
-      setCart(JSON.parse(sessionStorage.getItem('words')))
-    }
 
   return (
     <div className="App">

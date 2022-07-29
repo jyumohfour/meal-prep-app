@@ -18,11 +18,11 @@ export default function MealList({ mealData }) {
           })}
         </section>
         <button className="cart">
-          <text>Cart</text>
+          <text>Cart:</text>
           {/* <button className="cart" onClick={() => handleCart()} > */}
           {/* <img src={cartImg} style={{ height: "45px", width: "45px", padding: "13px"}} /> */}
           <CartContext.Consumer>
-            {({ local }) => <text>{local}</text>}
+            {({cart}) => <text>{cart.length}</text>}
           </CartContext.Consumer>
         </button>
       </section>
