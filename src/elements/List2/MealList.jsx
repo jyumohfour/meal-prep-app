@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Meal from "./Meal";
 import "./second.css"
 import cartImg from "../images/cart.png";
@@ -6,6 +6,8 @@ import {CartContext} from './SecondList';
 
 
 export default function MealList({ mealData }) {
+
+
   return (
     <main>
       <section className="mealList">
@@ -17,14 +19,18 @@ export default function MealList({ mealData }) {
             return <Meal key={meal.id} meal={meal} />;
           })}
         </section>
-        <button className="cart">
-          <text>Cart:</text>
-          {/* <button className="cart" onClick={() => handleCart()} > */}
-          {/* <img src={cartImg} style={{ height: "45px", width: "45px", padding: "13px"}} /> */}
+        <section className="sideStuff">
+          <h2>Remaining:</h2>
           <CartContext.Consumer>
-            {({cart}) => <text>{cart.length}</text>}
+            {({budget}) => <text>${budget}</text>}
           </CartContext.Consumer>
-        </button>
+          <button className="cart">
+            <text>Cart:</text>
+            <CartContext.Consumer>
+              {({ cart }) => <text>{cart.length}</text>}
+            </CartContext.Consumer>
+          </button>
+        </section>
       </section>
     </main>
   );

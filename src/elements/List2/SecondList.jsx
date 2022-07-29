@@ -5,22 +5,33 @@ import "./second.css";
 export const CartContext = React.createContext();
 
 function SecondList() {
+  const oldBudget = parseFloat(sessionStorage.getItem('budget'));
   const [mealData, setMealData] = useState(null);
   const [cart, setCart] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [budget, setBudget] = useState(oldBudget);
+
 
   function funkyThing(props) {
     setCart(props.label === 'Add' ? prev => [...prev, props.title] : prev => prev.filter(x => x !== props.title));
+    // budget and cost are converted to strings here for some reason
+    // use local constant values to convert them to floats for calculation
+    const convBudget = parseFloat(budget);
+    const convCost = parseFloat(props.cost)
+    setBudget(props.label === 'Add' ? (convBudget - convCost).toFixed(2) : (convBudget + convCost).toFixed(2));
   }
 
   // acts as replacement for class state
   let props = {
     cart: cart,
+    budget: budget,
     toggleLocal: funkyThing
   }
 
   useEffect(() => {
+    console.log("in use effect")
     console.log(cart);
+    console.log(budget);
   }, [cart])
 
 
@@ -31,7 +42,7 @@ function SecondList() {
   // josh's fourth one: 47b6002fbdb348c8b25754ba38c9c154
   // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
   // remember to update api key on "SecondList" and "Meal"
-  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=47b6002fbdb348c8b25754ba38c9c154'
+  const origLink = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=e71a6645ead9406db9c032e6c88d075f'
   const queryOne = JSON.parse(sessionStorage.getItem('usedIngredients'));
   console.log(queryOne);
   var stringOne = "includeIngredients=";
@@ -91,7 +102,7 @@ function SecondList() {
   // fetches data twice
   useEffect(() => {
     fetch(
-      'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2&number=10'
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8&number=2'
       // sessionStorage.getItem('bigLink')
     )
       .then((response) => response.json())

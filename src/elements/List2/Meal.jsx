@@ -5,15 +5,11 @@ import {CartContext} from './SecondList'
 const Meal = ({ meal }) => {
   const [loaded, isLoaded] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [health, setHealth] = useState("");
   const [likes, setLikes] = useState("");
   const [label, setLabel] = useState("Add");
 
-  let mealDetails = {
-    label: label,
-    title: meal.title
-  }
 
   useEffect(() => {
     // api key options:
@@ -24,12 +20,15 @@ const Meal = ({ meal }) => {
     // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
     // remember to update api key on "SecondList" and "Meal"
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=23139cc3494244e986af3e4ec60c0d9b&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
         setImageUrl(data.image);
-        setPrice(data.pricePerServing);
+        const tempPrice = parseFloat(data.pricePerServing)
+        setPrice((tempPrice /10).toFixed(2));
+        console.log("confirming this price is a float");
+        console.log(typeof(price));
         setHealth(data.healthScore);
         setLikes(data.aggregateLikes);
       })
@@ -68,6 +67,12 @@ const Meal = ({ meal }) => {
     }
   }
 
+  let mealDetails = {
+    label: label,
+    title: meal.title,
+    cost: price
+  }
+
   return (
     // article = meal block
     // article is now collapsible
@@ -88,6 +93,7 @@ const Meal = ({ meal }) => {
         <CartContext.Consumer>
           {(props) => (
             <button className ="addButton" onClick={() => {props.toggleLocal(mealDetails); handleCart()}}>{label}</button>
+
           )}
         </CartContext.Consumer>
       </section>
