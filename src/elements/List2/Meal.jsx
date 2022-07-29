@@ -7,6 +7,7 @@ const Meal = ({ meal }) => {
   const [imageUrl, setImageUrl] = useState("");
   const [price, setPrice] = useState(0);
   const [health, setHealth] = useState("");
+  const [url, setUrl] = useState("");
   const [likes, setLikes] = useState("");
   const [label, setLabel] = useState("Add");
 
@@ -27,9 +28,8 @@ const Meal = ({ meal }) => {
         setImageUrl(data.image);
         const tempPrice = parseFloat(data.pricePerServing)
         setPrice((tempPrice /10).toFixed(2));
-        console.log("confirming this price is a float");
-        console.log(typeof(price));
         setHealth(data.healthScore);
+        setUrl(data.sourceUrl);
         setLikes(data.aggregateLikes);
       })
       .catch(() => {
@@ -89,7 +89,7 @@ const Meal = ({ meal }) => {
       </ul>
 
       <section className="row">
-        <a href={meal.sourceUrl}>Go to Recipe</a>
+        <a href={url}>Go to Recipe</a>
         <CartContext.Consumer>
           {(props) => (
             <button className ="addButton" onClick={() => {props.toggleLocal(mealDetails); handleCart()}}>{label}</button>
