@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import MealList from "./MealList";
+import { Link } from "react-router-dom";
 import "./second.css";
 
 export const CartContext = React.createContext();
@@ -30,6 +31,7 @@ function SecondList() {
   useEffect(() => {
     console.log("in use effect")
     console.log(cart);
+    sessionStorage.setItem('dababy', JSON.stringify(cart));
     console.log(budget);
   }, [cart])
 
@@ -101,7 +103,7 @@ function SecondList() {
   // fetches data twice
   useEffect(() => {
     fetch(
-      'https://api.spoonacular.com/recipes/complexSearch?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8&number=1'
+      'https://api.spoonacular.com/recipes/complexSearch?apiKey=33830428e8b942879208b29576ba70f2&number=10'
       // sessionStorage.getItem('bigLink')
     )
       .then((response) => response.json())
@@ -127,6 +129,10 @@ function SecondList() {
             <MealList mealData={mealData}/>
           </CartContext.Provider>}
       </body>
+      {/* next page buton */}
+        <Link to="/Results">
+            <button className="nextPage">Continue</button>
+        </Link>
     </div>
   );
 }

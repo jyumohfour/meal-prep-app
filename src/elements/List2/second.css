@@ -178,6 +178,39 @@ a:hover {
   cursor: pointer;
 }
 
+.nextPage {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background: #2DE360;
+    border: 5px solid #2DE360;
+    margin-left: 75%;
+    margin-bottom: 5%;
+    color: #fff;
+    padding: 10px 20px;
+}
+/* input[type="submit"] {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background: #2DE360;
+    ;
+    border: 5px solid #2DE360;
+    ;
+    color: #fff;
+    padding: 10px 20px;
+} */
+.nextPage:hover{
+    background: #6cf0c2;
+    border: 5px solid #6cf0c2;
+}
+
+/* #about 
+input[type="submit"]:hover {
+  background: #6cf0c2;
+  border: 5px solid #6cf0c2;
+} */
+
 
 @media only screen and (max-width: 1024px) {
   .meals {

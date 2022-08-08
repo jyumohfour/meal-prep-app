@@ -1,0 +1,40 @@
+.phrase {
+    display: flex;
+    margin-top: 2.5%;
+    margin-left: 5%;
+    justify-content: center;
+}
+
+.header {
+    position: relative;
+    justify-self: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 85px;
+    color: #2DE360;
+}
+
+
+.headItem {
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 30px;
+    color: #9D9D9D
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.detailList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-right: 0.5%;
+}

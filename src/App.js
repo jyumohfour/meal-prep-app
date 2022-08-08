@@ -21,6 +21,8 @@ import List from "./elements/List";
 // imports SeconfLists from element/List2
 import SecondLists from "./elements/List2/SecondLists";
 
+import Results from "./elements/List2/Results";
+
 import { render } from "@testing-library/react";
 
 import Checkbox from "./elements/Checkbox";
@@ -53,6 +55,7 @@ return (
          <Route path=":postSlug" element={<SecondList />} />
         
       <Route path="/checkbox" element={<Checkbox />} />
+      <Route path="/results" element={<Results />} />
 
       {/* If any route mismatches the upper
       route endpoints then, redirect triggers

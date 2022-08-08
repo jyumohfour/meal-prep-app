@@ -21,7 +21,7 @@ const Meal = ({ meal }) => {
     // ananay's: 2a3e8df87d004d47a39d47f64a5ce0d8
     // remember to update api key on "SecondList" and "Meal"
     fetch(
-      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=2a3e8df87d004d47a39d47f64a5ce0d8&includeNutrition=false`
+      `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=33830428e8b942879208b29576ba70f2&includeNutrition=false`
     )
       .then((response) => response.json())
       .then((data) => {
